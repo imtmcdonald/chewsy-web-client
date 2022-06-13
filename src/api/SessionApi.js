@@ -3,19 +3,23 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Restaurant from '../components/Restaurant';
 
-export default function SessionApi({ location, radius }) {
+export default function SessionApi({ location, radius, duration }) {
     const[session, setSession] = useState('')
     const[generated, setGenerated] = useState('')
+    const[durationStatus, setDurationStatus] = useState('')
     const[restaurants, setRestaurants] = useState([])
 
     const url = 'http://localhost:8090';
 
-    const body = { location: location, radius: radius };
+    const body = JSON.stringify({ location: location, radius: radius })
     console.log(location)
     console.log(radius)
 
+    const durationBody = JSON.stringify({ duration: duration })
+    console.log(duration)
+
     const headers = {
-        'Content-Type': 'appliation/json'
+        'Content-Type': 'application/json'
     };
 
     const createSession = () => {
@@ -28,9 +32,18 @@ export default function SessionApi({ location, radius }) {
         });
     };
 
+    const setDuration = () => {
+        console.log(url + '/sessions/' + session + '/set_duration')
+        axios.post(url + '/sessions/' + session + '/set_duration', durationBody, { headers: headers })
+        .then(response => {
+            console.log(response);
+            setDurationStatus(true);
+        });
+    };
+
     const generateList = () => {
         console.log(url + '/sessions/' + session + '/restaurants')
-        axios.post(url + '/sessions/' + session + '/restaurants', { headers }, { body })
+        axios.post(url + '/sessions/' + session + '/restaurants', body, { headers: headers })
         .then(response => {
             console.log(response);
             setGenerated(true)
@@ -52,8 +65,12 @@ export default function SessionApi({ location, radius }) {
     }, []);
 
     useEffect(() => {
-        generateList();
+        setDuration();
     }, [session]);
+
+    useEffect(() => {
+        generateList();
+    }, [session, durationStatus]);
 
     useEffect(() => {
         getRestaurants();

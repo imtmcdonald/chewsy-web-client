@@ -7,10 +7,11 @@ function RestaurantPage() {
     const { state } = useLocation();
     console.log(state.location)
     console.log(state.radius)
+    console.log(state.duration)
   return (
     <div className="App">
       <Header/>
-      <SessionApi location={state.location} radius={state.radius}/>
+      <SessionApi location={state.location} radius={state.radius} duration={state.duration} />
     </div>
   );
 }
