@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 export default function RestaurantForm() {
     const [location, setLocation] = useState('')
     const [radius, setRadius] = useState('')
+    const [duration, setDuration] = useState('')
     
     const handleLocationChanged = (event) => {
         setLocation(event.target.value)
@@ -15,6 +16,11 @@ export default function RestaurantForm() {
     const handleRadiusChanged = (event) => {
         setRadius(event.target.value)
         console.log(radius)
+    }
+
+    const handleDurationChanged = (event) => {
+        setDuration(event.target.value)
+        console.log(duration)
     }
 
     const navigate = useNavigate();
@@ -27,7 +33,8 @@ export default function RestaurantForm() {
         {
             state: {
                 location: location,
-                radius: radius
+                radius: radius,
+                duration: duration
             }
         });
     }
@@ -40,6 +47,10 @@ export default function RestaurantForm() {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Radius</Form.Label>
                 <Form.Control type="radius" placeholder="Enter radius" value={radius} onChange={handleRadiusChanged.bind(this)}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Voting Duration in Days</Form.Label>
+                <Form.Control type="duration" placeholder="Enter voting duration (days)" value={duration} onChange={handleDurationChanged.bind(this)}/>
                 </Form.Group>
                 <Button variant="primary" onClick={handleButtonClicked.bind(this)}>
                 Get Restaurants
