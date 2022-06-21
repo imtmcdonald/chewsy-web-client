@@ -27,8 +27,7 @@ export default function SessionApi({ location, radius, duration }) {
     axios.post(`${url}/sessions/create_session`)
       .then((response) => {
         console.log(response.data.id);
-        session = response.data.id;
-        setSession(session);
+        setSession(response.data.id);
       });
   };
 
