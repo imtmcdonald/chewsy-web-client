@@ -21,8 +21,6 @@ steps:
 
 - script: npm run test:lint:js
   displayName: 'Run JS lint'
-- script: npm run test:lint:css
-  displayName: 'Run CSS lint'
 - script: npm run test:ci
   displayName: 'Run unit tests'
 - task: PublishTestResults@2
