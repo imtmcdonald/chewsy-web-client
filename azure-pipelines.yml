@@ -22,7 +22,7 @@ steps:
   displayName: 'Run CSS lint'
 - script: npm run test:unit -- --watchAll=false
   displayName: 'Run unit tests'
-- script: npm run coverage'
+- script: npm run coverage
   displayName: 'Run code coverage report'
 - task: PublishCodeCoverageResults@1
   inputs:
