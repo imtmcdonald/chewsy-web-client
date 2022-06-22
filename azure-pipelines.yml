@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  serviceConnection: CHEWSY_WEB_UI
+  appServiceName: chewsywebui
+
 steps:
 - task: NodeTool@0
   inputs:
@@ -53,3 +57,11 @@ steps:
   displayName: 'Publish Build Artifacts'
   inputs: 
     pathtoPublish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+
+- task: AzureWebApp@1
+  displayName: 'Deploy to App Service'
+  inputs:
+    azureSubscription: '$(serviceConnection)'
+    appName: '$(appServiceName)'
+    appType: 'webApp'
+    package: '$(System.ArtifactsDirectory)/$(Build.BuildId).zip'
