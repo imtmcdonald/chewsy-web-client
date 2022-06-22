@@ -20,8 +20,13 @@ steps:
   displayName: 'Run JS lint'
 - script: npm run test:lint:css
   displayName: 'Run CSS lint'
-- script: npm run test:unit -- --coverage . --watchAll=false
+- script: npm run test:ci
   displayName: 'Run unit tests'
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFiles: 'junit.xml'
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'Cobertura'
