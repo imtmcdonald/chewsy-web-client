@@ -37,7 +37,7 @@
       "!<rootDir>/node_modules/",
       "!**/vendor/**"
     ],
-    "coverageReporters": ["text", "json", "lcov"]
+    "coverageReporters": ["json", "lcov", "text", "clover", "cobertura"]
   },
   "browserslist": {
     "production": [

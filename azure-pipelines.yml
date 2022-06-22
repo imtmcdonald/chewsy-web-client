@@ -22,3 +22,10 @@ steps:
   displayName: 'Run CSS lint'
 - script: npm run test:unit -- --watchAll=false
   displayName: 'Run unit tests'
+- script: npm run coverage'
+  displayName: 'Run unit tests'
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: 'coverage/cobertura-coverage.xml'
+  displayName: 'Publish Code Coverage'
