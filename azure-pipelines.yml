@@ -11,7 +11,7 @@ pool:
 
 variables:
   serviceConnection: CHEWSY_WEB_UI
-  appServiceName: chewsywebui
+  appServiceName: chewsy
 
 steps:
 - task: NodeTool@0
