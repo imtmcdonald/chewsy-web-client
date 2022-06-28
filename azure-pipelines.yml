@@ -63,5 +63,5 @@ steps:
   inputs:
     azureSubscription: '$(serviceConnection)'
     appName: '$(appServiceName)'
-    appType: webAppLinux
+    appType: webApp
     package: '$(System.ArtifactsDirectory)/$(Build.BuildId).zip'
