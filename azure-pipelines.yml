@@ -63,6 +63,6 @@ steps:
   inputs:
     azureSubscription: '$(serviceConnection)'
     appName: '$(appServiceName)'
-    appType: 'webApp'
+    appType: 'webAppLinux'
     package: '$(System.ArtifactsDirectory)/$(Build.BuildId).zip'
     startUpCommand: 'pm2 serve /home/site/wwwroot --spa --no-daemon'
