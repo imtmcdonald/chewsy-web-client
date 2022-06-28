@@ -13,7 +13,7 @@ import MoreInfo from './pages/MoreInfo';
 
 export default function App() {
   return (
-    <Container className="p-5 w-75">
+    <Container className="p-5 w-auto">
       <Card className="text-center" style={{ background: 'rgba(255,255,255,0.8)' }}>
         <Card.Body>
           <Header />
