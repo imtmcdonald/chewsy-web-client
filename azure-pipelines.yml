@@ -66,3 +66,4 @@ steps:
     appType: webAppLinux
     package: '$(System.ArtifactsDirectory)/$(Build.BuildId).zip'
     startUpCommand: 'pm2 serve /home/site/wwwroot --spa --no-daemon'
+    runtimeStack: 'NODE|16-lts'
