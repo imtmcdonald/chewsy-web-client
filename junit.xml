@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="8" failures="0" errors="0" time="7.262">
+  <testsuite name="src\__tests__\Tagline.test.js" errors="0" failures="0" skipped="0" timestamp="2022-06-22T20:11:30" time="2.785" tests="1">
+    <testcase classname=" renders the Tagline" name=" renders the Tagline" time="0.05">
+    </testcase>
+  </testsuite>
+  <testsuite name="src\__tests__\Header.test.js" errors="0" failures="0" skipped="0" timestamp="2022-06-22T20:11:30" time="2.826" tests="1">
+    <testcase classname=" renders the header" name=" renders the header" time="0.054">
+    </testcase>
+  </testsuite>
+  <testsuite name="src\__tests__\LandingPage.test.js" errors="0" failures="0" skipped="0" timestamp="2022-06-22T20:11:30" time="3.3" tests="3">
+    <testcase classname=" renders the create a group button" name=" renders the create a group button" time="0.037">
+    </testcase>
+    <testcase classname=" renders the join a group button" name=" renders the join a group button" time="0.008">
+    </testcase>
+    <testcase classname=" renders the more info button" name=" renders the more info button" time="0.006">
+    </testcase>
+  </testsuite>
+  <testsuite name="src\__tests__\App.test.js" errors="0" failures="0" skipped="0" timestamp="2022-06-22T20:11:30" time="3.594" tests="3">
+    <testcase classname=" renders the header" name=" renders the header" time="0.151">
+    </testcase>
+    <testcase classname=" renders the tagline" name=" renders the tagline" time="0.011">
+    </testcase>
+    <testcase classname=" renders the landing page" name=" renders the landing page" time="0.011">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -9,7 +9,7 @@ export default function SessionApi({ location, radius, duration }) {
   const [durationStatus, setDurationStatus] = useState('');
   const [restaurants, setRestaurants] = useState([]);
 
-  const url = 'http://localhost:8090';
+  const url = 'https://chewsy-session.azurewebsites.net';
 
   const body = JSON.stringify({ location, radius });
   console.log(location);

@@ -8,7 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 render(
   <BrowserRouter>
-    <App />
+    <div className="background-image">
+      <App />
+    </div>
   </BrowserRouter>,
 
   document.querySelector('#root'),
