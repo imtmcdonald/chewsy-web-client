@@ -1,18 +1,14 @@
 import React from 'react';
 import '../App.css';
-import { useLocation } from 'react-router-dom';
-import SessionApi from '../api/SessionApi';
-import Header from '../components/Header';
+import { useParams } from 'react-router-dom';
+import GetSessionApi from '../api/GetSessionApi';
 
 function RestaurantPage() {
-  const { state } = useLocation();
-  console.log(state.location);
-  console.log(state.radius);
-  console.log(state.duration);
+  const { sessionId } = useParams();
+
   return (
     <div className="app">
-      <Header />
-      <SessionApi location={state.location} radius={state.radius} duration={state.duration} />
+      <GetSessionApi session={sessionId} />
     </div>
   );
 }

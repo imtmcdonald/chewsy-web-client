@@ -27,7 +27,7 @@ export default function App() {
               <Route exact path="/joingroup" element={<JoinGroup />} />
               <Route exact path="/moreinfo" element={<MoreInfo />} />
               <Route exact path="/initiator" element={<InitiatorPage />} />
-              <Route exact path="/restaurant" element={<RestaurantPage />} />
+              <Route exact path="/restaurant/:sessionId" element={<RestaurantPage />} />
             </Routes>
           </Card.Text>
         </Card.Body>

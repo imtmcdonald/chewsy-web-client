@@ -1,13 +1,12 @@
 import React from 'react';
 import '../App.css';
-import EmailForm from '../components/EmailForm';
 
-function CreateGroup() {
+function MoreInfo() {
   return (
     <div className="app">
-      <EmailForm />
+      
     </div>
   );
 }
 
-export default CreateGroup;
+export default MoreInfo;
