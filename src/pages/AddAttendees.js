@@ -1,22 +1,22 @@
 import React from 'react';
 import '../App.css';
-import { useParams } from 'react-router-dom';
-import GetSessionApi from '../api/GetSessionApi';
+import AttendeeForm from '../components/AttendeeForm';
 import { Card } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
-function RestaurantPage() {
+function AddAttendees() {
   const { sessionId } = useParams();
 
   return (
     <div className="app">
       <Card.Title>
-        <h1 className="display-4 pb-4">Vote!</h1>
+        <h1 className="display-4 pb-4">Add Attendees</h1>
       </Card.Title>
       <Card.Text>
-        <GetSessionApi session={sessionId} />
+        <AttendeeForm session={sessionId} />
       </Card.Text>
     </div>
   );
 }
 
-export default RestaurantPage;
+export default AddAttendees;

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
 import { useNavigate } from 'react-router-dom';
 
 export default function RestaurantForm() {
@@ -40,27 +42,60 @@ export default function RestaurantForm() {
       },
     );
   };
+
+  const handleBackButtonClicked = (event) => {
+    event.preventDefault();
+    navigate(
+      '/'
+    );
+  };
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+    <Form className="container" style={{ textAlign: 'left' }}>
+      <Form.Group className="mb-3 text-left" controlId="formBasicEmail">
+        <Form.Label>Email address:</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Location</Form.Label>
+        <Form.Label>Location:</Form.Label>
         <Form.Control type="location" placeholder="Enter location" value={location} onChange={handleLocationChanged.bind(this)} />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Radius</Form.Label>
-        <Form.Control type="radius" placeholder="Enter radius" value={radius} onChange={handleRadiusChanged.bind(this)} />
+        <Form.Label>Radius (miles):</Form.Label>
+        <Form.Select onChange={handleRadiusChanged.bind(this)}>
+          <option>Select radius (miles)</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="10">20</option>
+          <option value="15">25</option>
+          <option value="10">30</option>
+        </Form.Select>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Voting Duration in Days</Form.Label>
-        <Form.Control type="duration" placeholder="Enter voting duration (days)" value={duration} onChange={handleDurationChanged.bind(this)} />
+        <Form.Label>Duration (days):</Form.Label>
+        <Form.Select onChange={handleDurationChanged.bind(this)}>
+          <option>Select voting duration (days)</option>
+          <option value="5">1</option>
+          <option value="10">2</option>
+          <option value="15">3</option>
+          <option value="10">4</option>
+          <option value="15">5</option>
+          <option value="10">6</option>
+          <option value="10">7</option>
+        </Form.Select>
       </Form.Group>
-      <Button variant="primary" onClick={handleButtonClicked.bind(this)}>
-        Get Restaurants
-      </Button>
+      <Row>
+        <Col className="w-100" style={{ display: 'inline-block', textAlign: 'left' }}>
+        <Button variant="danger" onClick={handleBackButtonClicked}>
+          Go Back
+        </Button>
+        </Col>
+        <Col className="w-100" style={{ display: 'inline-block', textAlign: 'right' }}>
+        <Button style={{ display: 'inline-block', textAlign: 'right' }} variant="success" onClick={handleButtonClicked.bind(this)}>
+          Create Group
+        </Button>
+        </Col>
+      </Row>
     </Form>
   );
 }

@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 export default function SessionApi({ location, radius, duration }) {
   const [loading, setLoading] = useState(true);
   const [session, setSession] = useState('');
 
-  const url = 'https://chewsy-session.azurewebsites.net';
+  const url = 'https://chewsy-session.azurewebsites.net';  
 
   const body = JSON.stringify({ location, radius, duration });
   console.log(location);
@@ -33,11 +34,11 @@ export default function SessionApi({ location, radius, duration }) {
 
   if (loading) {
     return (
-      <h3>Getting the list from the Concierge...</h3>
+      <h3>Getting the list from the Concierge <Spinner animation="border" /></h3>
     )
   } else {
     return (
-      <Navigate to={`/restaurant/${session}`} />
+      <Navigate to={`/addattendees/${session}`} />
     )
   }
 }
