@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import { useNavigate } from 'react-router-dom';
@@ -97,12 +99,12 @@ export default function AttendeeForm({ session }) {
       </Form.Group>
       <Row className="mb-3">
         <Col className="w-100" style={{ display: 'inline-block', textAlign: 'center' }}>
-          <Button aria-label="add" style={edit ? { display: 'none' } : {}} disabled={!name || !email} variant="primary" onClick={handleAddAnotherButtonClicked}>
-            Add Attendee
-          </Button>
-          <Button aria-label="update" style={edit ? {} : { display: 'none' }} disabled={!name || !email} variant="primary" onClick={handleUpdateButtonClicked}>
-            Update
-          </Button>
+            <Button aria-label="add" style={edit ? { display: 'none' } : {}} disabled={!name || !email} variant="primary" onClick={handleAddAnotherButtonClicked}>
+              Add Attendee
+            </Button>
+            <Button aria-label="update" style={edit ? {} : { display: 'none' }} disabled={!name || !email} variant="primary" onClick={handleUpdateButtonClicked}>
+              Update
+            </Button>
         </Col>
       </Row>
       {attendees.map((attendee, index) => {
@@ -116,8 +118,28 @@ export default function AttendeeForm({ session }) {
             <b>Name: </b>{attendee.name}, <b>Email: </b>{attendee.email}
             </Col>
             <Col className="w-100" style={{ display: 'inline-block', textAlign: 'right' }}>
-            <FontAwesomeIcon aria-label="edit-icon" className="btn btn-warning ms-2" icon={faPenToSquare} onClick={handleEditButtonClicked.bind(this, index)} />
-            <FontAwesomeIcon aria-label="delete-icon" className="btn btn-danger ms-2" icon={faTrash} onClick={handleDeleteButtonClicked.bind(this, index)} />
+              <OverlayTrigger
+                key="top"
+                placement="top"
+                overlay={
+                  <Tooltip id={`tooltip-top`}>
+                    <strong>Edit</strong> attendee.
+                  </Tooltip>
+                }
+              >
+                <FontAwesomeIcon aria-label="edit-icon" className="btn btn-warning ms-2" icon={faPenToSquare} onClick={handleEditButtonClicked.bind(this, index)} />
+              </OverlayTrigger>
+              <OverlayTrigger
+                key="top"
+                placement="top"
+                overlay={
+                  <Tooltip id={`tooltip-top`}>
+                    <strong>Remove</strong> attendee.
+                  </Tooltip>
+                }
+              >
+                <FontAwesomeIcon aria-label="delete-icon" className="btn btn-danger ms-2" icon={faTrash} onClick={handleDeleteButtonClicked.bind(this, index)} />
+              </OverlayTrigger>
             </Col>
             </Row>
           </ListGroup.Item>

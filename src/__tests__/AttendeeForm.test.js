@@ -176,4 +176,70 @@ describe("<AttendeeForm />", () => {
         const attendeeEmail = screen.queryByText(/test@email.com/i);
         expect(attendeeEmail).toBeNull;
     });
+
+    test("should hover over edit icon and see tooltip", async () => {
+        render(
+            <BrowserRouter>
+                <AttendeeForm />
+            </BrowserRouter>
+        );
+
+        user = ({
+            email: "test@email.com",
+            name: "test",
+        });
+
+        emailTextBox = screen.getByRole("textbox", {
+            name: /Email Address/i,
+        });
+
+        nameTextBox = screen.getByRole("textbox", {
+            name: /Name/i,
+        });
+
+        addAttendeeButton = screen.getByRole('button', { name: /add/i });
+        
+        await userEvent.type(emailTextBox, "test@email.com");
+        await userEvent.type(nameTextBox, "test");
+        await userEvent.click(addAttendeeButton)
+
+        editButton = screen.getByLabelText('edit-icon');
+        await userEvent.hover(editButton)
+
+        const editToolTip = screen.queryByText(/Edit/i);
+        expect(editToolTip).toBeNull;
+    });
+
+    test("should hover over delete icon and see tooltip", async () => {
+        render(
+            <BrowserRouter>
+                <AttendeeForm />
+            </BrowserRouter>
+        );
+
+        user = ({
+            email: "test@email.com",
+            name: "test",
+        });
+
+        emailTextBox = screen.getByRole("textbox", {
+            name: /Email Address/i,
+        });
+
+        nameTextBox = screen.getByRole("textbox", {
+            name: /Name/i,
+        });
+
+        addAttendeeButton = screen.getByRole('button', { name: /add/i });
+        
+        await userEvent.type(emailTextBox, "test@email.com");
+        await userEvent.type(nameTextBox, "test");
+        await userEvent.click(addAttendeeButton)
+
+        deleteButton = screen.getByLabelText('delete-icon');
+        await userEvent.hover(deleteButton)
+
+        const deleteToolTip = screen.queryByText(/Delete/i);
+        expect(deleteToolTip).toBeNull;
+    });
 });
