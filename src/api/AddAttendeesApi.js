@@ -4,8 +4,7 @@ import { Navigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 
 export default function AddAttendeesApi({ session, attendees }) {
-  const [loading, setLoading] = useState(true);
-  const [attendee, setAttendee] = useState([]);
+  const [loading, setLoading] = useState(0);
 
   const url = 'https://chewsy-session.azurewebsites.net';
 
@@ -17,7 +16,7 @@ export default function AddAttendeesApi({ session, attendees }) {
 
     for(i=0; i < attendees.length; i++) {
       console.log(attendees[i]);
-      setAttendee(attendees[i]);
+
       const body = JSON.stringify(attendees[i]);
       const headers = {
         'Content-Type': 'application/json',
@@ -27,16 +26,16 @@ export default function AddAttendeesApi({ session, attendees }) {
       axios.post(`${url}/sessions/${session}/attendees`, body, { headers })
         .then((response) => {
           console.log(response);
+          setLoading(i);
         });
     };
-    setLoading((loading) => !loading);
   };
 
   useEffect(() => {
     addAttendees();
   }, []);
 
-  if (loading) {
+  if (loading < attendees.length) {
     return (
       <h3>Inviting the attendees <Spinner animation="border" /></h3>
     )

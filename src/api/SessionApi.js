@@ -7,7 +7,7 @@ export default function SessionApi({ location, radius, duration }) {
   const [loading, setLoading] = useState(true);
   const [session, setSession] = useState('');
 
-  const url = 'https://chewsy-session.azurewebsites.net';  
+  const url = 'https://chewsy-session.azurewebsites.net';
 
   const body = JSON.stringify({ location, radius, duration });
   console.log(location);

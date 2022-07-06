@@ -86,21 +86,21 @@ export default function AttendeeForm({ session }) {
   };
 
   return (
-    <Form className="container" style={{ textAlign: 'left' }}>
+    <Form aria-label="Add Attendees" className="container" style={{ textAlign: 'left' }}>
       <Form.Group className="mb-3 text-left" controlId="formBasicEmail">
         <Form.Label>Name:</Form.Label>
-        <Form.Control type="name" placeholder="Enter name" value={name} onChange={handleNameChanged.bind(this)} />
+        <Form.Control aria-label="Name" name="name" id="name" type="name" placeholder="Enter name" value={name} onChange={handleNameChanged.bind(this)} />
       </Form.Group>
       <Form.Group className="mb-3 text-left" controlId="formBasicEmail">
         <Form.Label>Email address:</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChanged.bind(this)} />
+        <Form.Control aria-label="Email Address" name="email" id="email" type="email" placeholder="Enter email" value={email} onChange={handleEmailChanged.bind(this)} />
       </Form.Group>
       <Row className="mb-3">
         <Col className="w-100" style={{ display: 'inline-block', textAlign: 'center' }}>
-          <Button style={edit ? { display: 'none' } : {}} disabled={!name || !email} variant="primary" onClick={handleAddAnotherButtonClicked}>
+          <Button aria-label="add" style={edit ? { display: 'none' } : {}} disabled={!name || !email} variant="primary" onClick={handleAddAnotherButtonClicked}>
             Add Attendee
           </Button>
-          <Button style={edit ? {} : { display: 'none' }} disabled={!name || !email} variant="primary" onClick={handleUpdateButtonClicked}>
+          <Button aria-label="update" style={edit ? {} : { display: 'none' }} disabled={!name || !email} variant="primary" onClick={handleUpdateButtonClicked}>
             Update
           </Button>
         </Col>
@@ -111,13 +111,13 @@ export default function AttendeeForm({ session }) {
         return (
         <ListGroup className="mb-3">
           <ListGroup.Item>
-            <Row>
+            <Row aria-label="attendees">
             <Col className="text-truncate">
             <b>Name: </b>{attendee.name}, <b>Email: </b>{attendee.email}
             </Col>
             <Col className="w-100" style={{ display: 'inline-block', textAlign: 'right' }}>
-            <FontAwesomeIcon className="btn btn-warning ms-2" icon={faPenToSquare} onClick={handleEditButtonClicked.bind(this, index)} />
-            <FontAwesomeIcon className="btn btn-danger ms-2" icon={faTrash} onClick={handleDeleteButtonClicked.bind(this, index)} />
+            <FontAwesomeIcon aria-label="edit-icon" className="btn btn-warning ms-2" icon={faPenToSquare} onClick={handleEditButtonClicked.bind(this, index)} />
+            <FontAwesomeIcon aria-label="delete-icon" className="btn btn-danger ms-2" icon={faTrash} onClick={handleDeleteButtonClicked.bind(this, index)} />
             </Col>
             </Row>
           </ListGroup.Item>
@@ -126,15 +126,15 @@ export default function AttendeeForm({ session }) {
       })}
       <Row>
         <Col className="w-100" style={{ display: 'inline-block', textAlign: 'left' }}>
-        <Button className="m-1" variant="danger" onClick={handleBackButtonClicked}>
+        <Button aria-label="back" className="m-1" variant="danger" onClick={handleBackButtonClicked}>
           Go Back
         </Button>
         </Col>
         <Col className="w-100" style={{ display: 'inline-block', textAlign: 'right' }}>
-        <Button className="m-1" variant="success" disabled={attendees.length==0} onClick={handleButtonClicked.bind(this)}>
+        <Button aria-label="invite" className="m-1" variant="success" disabled={attendees.length==0} onClick={handleButtonClicked.bind(this)}>
           Invite Attendees
         </Button>
-        <Button variant="outline-success" onClick={handleButtonClicked.bind(this)}>
+        <Button aria-label="skip" variant="outline-success" onClick={handleButtonClicked.bind(this)}>
           Skip
         </Button>
         </Col>
