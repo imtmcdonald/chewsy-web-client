@@ -4,8 +4,18 @@ import AddAttendees from "../pages/AddAttendees";
 import { MemoryRouter } from 'react-router-dom';
 
 test("renders the add attendees page tagline", () => {
+    const email = "test@email.com";
+    const session = "1";
     render(
-        <MemoryRouter initialEntries={['addattendees/1']}>
+        <MemoryRouter initialEntries={[
+            '/',
+            {
+                pathname: `/addattendees/${session}`,
+                state: {
+                    initiator: email,
+                },
+            }
+        ]}>
             <AddAttendees />
         </MemoryRouter>
     );
@@ -14,8 +24,18 @@ test("renders the add attendees page tagline", () => {
 });
 
 test("renders the go back button", () => {
+    const email = "test@email.com";
+    const session = "1";
     render(
-        <MemoryRouter initialEntries={['addattendees/1']}>
+        <MemoryRouter initialEntries={[
+            '/',
+            {
+                pathname: `/addattendees/${session}`,
+                state: {
+                    initiator: email,
+                },
+            }
+        ]}>
             <AddAttendees />
         </MemoryRouter>
     );
@@ -24,8 +44,18 @@ test("renders the go back button", () => {
 });
 
 test("renders the invite attendees button", () => {
+    const email = "test@email.com";
+    const session = "1";
     render(
-        <MemoryRouter initialEntries={['addattendees/1']}>
+        <MemoryRouter initialEntries={[
+            '/',
+            {
+                pathname: `/addattendees/${session}`,
+                state: {
+                    initiator: email,
+                },
+            }
+        ]}>
             <AddAttendees />
         </MemoryRouter>
     );
@@ -34,8 +64,18 @@ test("renders the invite attendees button", () => {
 });
 
 test("renders the add attendee button", () => {
+    const email = "test@email.com";
+    const session = "1";
     render(
-        <MemoryRouter initialEntries={['addattendees/1']}>
+        <MemoryRouter initialEntries={[
+            '/',
+            {
+                pathname: `/addattendees/${session}`,
+                state: {
+                    initiator: email,
+                },
+            }
+        ]}>
             <AddAttendees />
         </MemoryRouter>
     );
@@ -44,8 +84,18 @@ test("renders the add attendee button", () => {
 });
 
 test("renders the skip button", () => {
+    const email = "test@email.com";
+    const session = "1";
     render(
-        <MemoryRouter initialEntries={['addattendees/1']}>
+        <MemoryRouter initialEntries={[
+            '/',
+            {
+                pathname: `/addattendees/${session}`,
+                state: {
+                    initiator: email,
+                },
+            }
+        ]}>
             <AddAttendees />
         </MemoryRouter>
     );
@@ -54,8 +104,18 @@ test("renders the skip button", () => {
 });
 
 test("renders the email address form", () => {
+    const email = "test@email.com";
+    const session = "1";
     render(
-        <MemoryRouter initialEntries={['addattendees/1']}>
+        <MemoryRouter initialEntries={[
+            '/',
+            {
+                pathname: `/addattendees/${session}`,
+                state: {
+                    initiator: email,
+                },
+            }
+        ]}>
             <AddAttendees />
         </MemoryRouter>
     );
@@ -64,8 +124,18 @@ test("renders the email address form", () => {
 });
 
 test("renders the name form", () => {
+    const email = "test@email.com";
+    const session = "1";
     render(
-        <MemoryRouter initialEntries={['addattendees/1']}>
+        <MemoryRouter initialEntries={[
+            '/',
+            {
+                pathname: `/addattendees/${session}`,
+                state: {
+                    initiator: email,
+                },
+            }
+        ]}>
             <AddAttendees />
         </MemoryRouter>
     );

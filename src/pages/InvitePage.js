@@ -6,8 +6,6 @@ import { Card } from 'react-bootstrap';
 
 function InvitePage() {
   const { state } = useLocation();
-  console.log(state.session);
-  console.log(state.attendees);
 
   return (
     <div className="app">
@@ -15,7 +13,7 @@ function InvitePage() {
         <h1 className="display-4 pb-4">Inviting your attendees!</h1>
       </Card.Title>
       <Card.Text>
-        <AddAttendeesApi session={state.session} attendees={state.attendees} />
+        <AddAttendeesApi />
       </Card.Text>
     </div>
   );

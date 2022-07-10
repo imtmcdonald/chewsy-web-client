@@ -1,31 +1,29 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 
-export default function AddAttendeesApi({ session, attendees }) {
+export default function AddAttendeesApi() {
   const [loading, setLoading] = useState(0);
+  const { state } = useLocation();
+  const session = state.session;
+  const attendees = state.attendees;
+  const initiator = state.initiator;
 
   const url = 'https://chewsy-session.azurewebsites.net';
+  // const url = 'http://localhost:8090';
 
-  console.log(session);
-  console.log(attendees);
- 
   const addAttendees = () => {
     var i;
 
     for(i=0; i < attendees.length; i++) {
-      console.log(attendees[i]);
-
       const body = JSON.stringify(attendees[i]);
       const headers = {
         'Content-Type': 'application/json',
       };
     
-      console.log(`${url}/sessions/${session}/attendees`);
       axios.post(`${url}/sessions/${session}/attendees`, body, { headers })
         .then((response) => {
-          console.log(response);
           setLoading(i);
         });
     };
@@ -41,7 +39,7 @@ export default function AddAttendeesApi({ session, attendees }) {
     )
   } else {
     return (
-      <Navigate to={`/restaurant/${session}`} />
+      <Navigate to={`/restaurant/${session}`} state={{email: initiator}} />
     )
   }
 }

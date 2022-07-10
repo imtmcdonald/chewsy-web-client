@@ -2,15 +2,15 @@ import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import AddAttendeesApi from "../api/AddAttendeesApi";
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { act } from 'react-dom/test-utils';
 
 describe("<AddAttendeesApi />", () => {
-    console.log("hello")
     let mock;
-    const url = 'https://chewsy-session.azurewebsites.net';
-    const session = {id: '1'};
+    const url = "https://chewsy-session.azurewebsites.net";
+    const session = "1";
     const attendees = [{ name: "test", email: "test@email.com" }];
+    const email = "test@email.com";
 
     beforeAll(() => {
         mock = new MockAdapter(axios);
@@ -22,12 +22,20 @@ describe("<AddAttendeesApi />", () => {
 
     describe("when API call is made, the loader is displayed", () => {
         test("should return 200 response", () => {
-            mock.onPost(`${url}/sessions/1/attendees`).reply(200);
+            mock.onPost(`${url}/sessions/${session}/attendees`).reply(200);
             act(() => {
                 render(
-                    <BrowserRouter>
-                        <AddAttendeesApi session="1" attendees={attendees} />
-                    </BrowserRouter>
+                    <MemoryRouter initialEntries={[
+                        {
+                            state: {
+                                initiator: email,
+                                session: session,
+                                attendees: attendees,
+                            },
+                        }
+                    ]}>
+                        <AddAttendeesApi />
+                    </MemoryRouter>
                 );
             });
             
