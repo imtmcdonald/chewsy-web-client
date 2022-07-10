@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from '@testing-library/react';
 import AttendeeForm from "../components/AttendeeForm";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import userEvent from '@testing-library/user-event'
 
 describe("<AttendeeForm />", () => {
@@ -11,12 +11,20 @@ describe("<AttendeeForm />", () => {
     let addAttendeeButton;
     let editButton;
     let deleteButton;
+    const session = "1";
+    const email = "test@email.com";
     
     test("should load user data into form", async () => {
         render(
-            <BrowserRouter>
-                <AttendeeForm />
-            </BrowserRouter>
+            <MemoryRouter initialEntries={[
+                {
+                    state: {
+                        initiator: email,
+                    },
+                }
+            ]}>
+                <AttendeeForm session={session} />
+            </MemoryRouter>
         );
 
         user = ({
@@ -47,9 +55,15 @@ describe("<AttendeeForm />", () => {
 
     test("add attendee button should be disabled without data in fields", async () => {
         render(
-            <BrowserRouter>
-                <AttendeeForm />
-            </BrowserRouter>
+            <MemoryRouter initialEntries={[
+                {
+                    state: {
+                        initiator: email,
+                    },
+                }
+            ]}>
+                <AttendeeForm session={session} />
+            </MemoryRouter>
         );
 
         addAttendeeButton = screen.getByRole('button', { name: /add/i });
@@ -59,9 +73,15 @@ describe("<AttendeeForm />", () => {
 
     test("should load user data into form and add attendee to list", async () => {
         render(
-            <BrowserRouter>
-                <AttendeeForm />
-            </BrowserRouter>
+            <MemoryRouter initialEntries={[
+                {
+                    state: {
+                        initiator: email,
+                    },
+                }
+            ]}>
+                <AttendeeForm session={session} />
+            </MemoryRouter>
         );
 
         user = ({
@@ -104,9 +124,15 @@ describe("<AttendeeForm />", () => {
 
     test("should click edit and load user data into form", async () => {
         render(
-            <BrowserRouter>
-                <AttendeeForm />
-            </BrowserRouter>
+            <MemoryRouter initialEntries={[
+                {
+                    state: {
+                        initiator: email,
+                    },
+                }
+            ]}>
+                <AttendeeForm session={session} />
+            </MemoryRouter>
         );
 
         user = ({
@@ -143,9 +169,15 @@ describe("<AttendeeForm />", () => {
 
     test("should click delete and delete user from list", async () => {
         render(
-            <BrowserRouter>
-                <AttendeeForm />
-            </BrowserRouter>
+            <MemoryRouter initialEntries={[
+                {
+                    state: {
+                        initiator: email,
+                    },
+                }
+            ]}>
+                <AttendeeForm session={session} />
+            </MemoryRouter>
         );
 
         user = ({
@@ -179,9 +211,15 @@ describe("<AttendeeForm />", () => {
 
     test("should hover over edit icon and see tooltip", async () => {
         render(
-            <BrowserRouter>
-                <AttendeeForm />
-            </BrowserRouter>
+            <MemoryRouter initialEntries={[
+                {
+                    state: {
+                        initiator: email,
+                    },
+                }
+            ]}>
+                <AttendeeForm session={session} />
+            </MemoryRouter>
         );
 
         user = ({
@@ -212,9 +250,15 @@ describe("<AttendeeForm />", () => {
 
     test("should hover over delete icon and see tooltip", async () => {
         render(
-            <BrowserRouter>
-                <AttendeeForm />
-            </BrowserRouter>
+            <MemoryRouter initialEntries={[
+                {
+                    state: {
+                        initiator: email,
+                    },
+                }
+            ]}>
+                <AttendeeForm session={session} />
+            </MemoryRouter>
         );
 
         user = ({

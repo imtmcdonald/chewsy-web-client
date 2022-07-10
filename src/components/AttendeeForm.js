@@ -5,34 +5,31 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col'
-import { useNavigate } from 'react-router-dom';
+import Col from 'react-bootstrap/Col';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 export default function AttendeeForm({ session }) {
+  const { state } = useLocation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [edit, setEdit] = useState(false);
   const [index, setIndex] = useState('');
   const [attendees, setAttendees] = useState([]);
-
-  console.log(session);
+  const [ initiator, setInitiator ] = useState(state.initiator);
 
   const handleNameChanged = (event) => {
     setName(event.target.value);
-    console.log(name);
   };
 
   const handleEmailChanged = (event) => {
     setEmail(event.target.value);
-    console.log(email);
   };
 
   const navigate = useNavigate();
 
   const handleButtonClicked = (event) => {
-    console.log(attendees);
     event.preventDefault();
     navigate(
       '/invite',
@@ -40,6 +37,7 @@ export default function AttendeeForm({ session }) {
         state: {
           attendees,
           session,
+          initiator,
         },
       },
     );
@@ -55,13 +53,11 @@ export default function AttendeeForm({ session }) {
   const handleAddAnotherButtonClicked = (event) => {
     event.preventDefault();
     setAttendees(current => [...current, { name: name, email: email}]);
-    console.log(attendees);
     setName('');
     setEmail('');
   };
 
   const handleDeleteButtonClicked = (index) => {
-    console.log(index);
     setAttendees([
       ...attendees.slice(0, index),
       ...attendees.slice(index + 1, attendees.length)
@@ -69,7 +65,6 @@ export default function AttendeeForm({ session }) {
   };
 
   const handleEditButtonClicked = (index) => {
-    console.log(index);
     setIndex(index);
     setName(attendees[index].name);
     setEmail(attendees[index].email);
@@ -84,18 +79,17 @@ export default function AttendeeForm({ session }) {
     setEdit(false);
     setName('');
     setEmail('');
-    console.log(attendees);
   };
 
   return (
     <Form aria-label="Add Attendees" className="container" style={{ textAlign: 'left' }}>
-      <Form.Group className="mb-3 text-left" controlId="formBasicEmail">
+      <Form.Group className="mb-3 text-left" controlId="name">
         <Form.Label>Name:</Form.Label>
-        <Form.Control aria-label="Name" name="name" id="name" type="name" placeholder="Enter name" value={name} onChange={handleNameChanged.bind(this)} />
+        <Form.Control aria-label="Name" name="name" type="name" placeholder="Enter name" value={name} onChange={handleNameChanged.bind(this)} />
       </Form.Group>
-      <Form.Group className="mb-3 text-left" controlId="formBasicEmail">
+      <Form.Group className="mb-3 text-left" controlId="email">
         <Form.Label>Email address:</Form.Label>
-        <Form.Control aria-label="Email Address" name="email" id="email" type="email" placeholder="Enter email" value={email} onChange={handleEmailChanged.bind(this)} />
+        <Form.Control aria-label="Email Address" name="email" type="email" placeholder="Enter email" value={email} onChange={handleEmailChanged.bind(this)} />
       </Form.Group>
       <Row className="mb-3">
         <Col className="w-100" style={{ display: 'inline-block', textAlign: 'center' }}>
@@ -108,8 +102,6 @@ export default function AttendeeForm({ session }) {
         </Col>
       </Row>
       {attendees.map((attendee, index) => {
-        console.log(attendee);
-        // console.log(index);
         return (
         <ListGroup className="mb-3">
           <ListGroup.Item>

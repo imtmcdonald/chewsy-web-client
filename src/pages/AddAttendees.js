@@ -2,11 +2,12 @@ import React from 'react';
 import '../App.css';
 import AttendeeForm from '../components/AttendeeForm';
 import { Card } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 
 function AddAttendees() {
   const { sessionId } = useParams();
-
+  const { state } = useLocation();
+  
   return (
     <div className="app">
       <Card.Title>

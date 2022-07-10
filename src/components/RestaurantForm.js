@@ -13,41 +13,36 @@ export default function RestaurantForm() {
 
   const handleEmailChanged = (event) => {
     setEmail(event.target.value);
-    console.log(email);
   };
 
   const handleLocationChanged = (event) => {
     setLocation(event.target.value);
-    console.log(location);
   };
 
   const handleRadiusChanged = (event) => {
     setRadius(event.target.value);
-    console.log(radius);
   };
 
   const handleDurationChanged = (event) => {
     setDuration(event.target.value);
-    console.log(duration);
   };
 
   const navigate = useNavigate();
 
   const handleButtonClicked = (event) => {
-    console.log(location);
-    console.log(radius);
     event.preventDefault();
-    navigate(
-      '/initiator',
-      {
-        state: {
-          location,
-          radius,
-          duration,
+      navigate(
+        '/initiator',
+        {
+          state: {
+            location,
+            radius,
+            duration,
+            email,
+          },
         },
-      },
-    );
-  };
+      );
+    };
 
   const handleBackButtonClicked = (event) => {
     event.preventDefault();
@@ -57,17 +52,17 @@ export default function RestaurantForm() {
   };
   return (
     <Form aria-label="Create a Group" className="container" style={{ textAlign: 'left' }}>
-      <Form.Group className="mb-3 text-left" controlId="formBasicEmail">
+      <Form.Group className="mb-3 text-left" controlId="email">
         <Form.Label>Email address:</Form.Label>
-        <Form.Control aria-label="Email Address" name="email" id="email" type="email" placeholder="Enter email" value={email} onChange={handleEmailChanged.bind(this)} />
+        <Form.Control aria-label="Email Address" name="email" type="email" placeholder="Enter email" value={email} onChange={handleEmailChanged.bind(this)} />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="location">
         <Form.Label>Location:</Form.Label>
-        <Form.Control aria-label="Location" name="location" id="location" type="location" placeholder="Enter location" value={location} onChange={handleLocationChanged.bind(this)} />
+        <Form.Control aria-label="Location" name="location" type="location" placeholder="Enter location" value={location} onChange={handleLocationChanged.bind(this)} />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="radius">
         <Form.Label>Radius (miles):</Form.Label>
-        <Form.Select aria-label="Radius" name="radius" id="radius" onChange={handleRadiusChanged.bind(this)}>
+        <Form.Select aria-label="Radius" name="radius" onChange={handleRadiusChanged.bind(this)}>
           <option>Select radius (miles)</option>
           <option value="5">5</option>
           <option value="10">10</option>
@@ -77,9 +72,9 @@ export default function RestaurantForm() {
           <option value="10">30</option>
         </Form.Select>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="duration">
         <Form.Label>Duration (days):</Form.Label>
-        <Form.Select aria-label="Duration" name="duration" id="duration" onChange={handleDurationChanged.bind(this)}>
+        <Form.Select aria-label="Duration" name="duration" onChange={handleDurationChanged.bind(this)}>
           <option>Select voting duration (days)</option>
           <option value="1">1</option>
           <option value="2">2</option>
