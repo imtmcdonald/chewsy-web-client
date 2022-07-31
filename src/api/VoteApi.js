@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { postApi } from './PostApi';
 
-export function useVoteApi(sessionId, email, restaurant, vote) {
+export function useVoteApi(sessionId, email, restaurant, vote, complete) {
   const [submitted, setSubmitted] = useState(false);
 
   const url = 'https://chewsy-vote.azurewebsites.net';
@@ -27,7 +27,9 @@ export function useVoteApi(sessionId, email, restaurant, vote) {
   };
 
   useEffect(() => {
-    castVote();
+    if (!complete) {
+      castVote();
+    }
   }, [restaurant]);
 
   return submitted;
