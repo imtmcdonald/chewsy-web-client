@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import GetSessionApi from '../api/GetSessionApi';
 import { Card } from 'react-bootstrap';
 
@@ -9,9 +9,6 @@ function RestaurantPage() {
 
   return (
     <div className="app">
-      <Card.Title>
-        <h1 className="display-4 pb-4">Vote!</h1>
-      </Card.Title>
       <Card.Text>
         <GetSessionApi session={sessionId} />
       </Card.Text>
