@@ -1,111 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="40" failures="0" errors="0" time="8.777">
-  <testsuite name="src\__tests__\JoinForm.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:49" time="2.883" tests="4">
-    <testcase classname="&lt;JoinForm /&gt; should load group data into form" name="&lt;JoinForm /&gt; should load group data into form" time="0.521">
+<testsuites name="jest tests" tests="41" failures="0" errors="0" time="10.429">
+  <testsuite name="src\__tests__\JoinForm.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:50" time="3.659" tests="4">
+    <testcase classname="&lt;JoinForm /&gt; should load group data into form" name="&lt;JoinForm /&gt; should load group data into form" time="0.544">
     </testcase>
-    <testcase classname="&lt;JoinForm /&gt; join group button should render" name="&lt;JoinForm /&gt; join group button should render" time="0.034">
+    <testcase classname="&lt;JoinForm /&gt; join group button should render" name="&lt;JoinForm /&gt; join group button should render" time="0.033">
     </testcase>
-    <testcase classname="&lt;JoinForm /&gt; back button should render" name="&lt;JoinForm /&gt; back button should render" time="0.029">
+    <testcase classname="&lt;JoinForm /&gt; back button should render" name="&lt;JoinForm /&gt; back button should render" time="0.037">
     </testcase>
-    <testcase classname="&lt;JoinForm /&gt; text boxes should render" name="&lt;JoinForm /&gt; text boxes should render" time="0.039">
-    </testcase>
-  </testsuite>
-  <testsuite name="src\__tests__\CreateGroup.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:49" time="3.051" tests="7">
-    <testcase classname=" renders the create a group tagline" name=" renders the create a group tagline" time="0.186">
-    </testcase>
-    <testcase classname=" renders the go back button" name=" renders the go back button" time="0.03">
-    </testcase>
-    <testcase classname=" renders the create group button" name=" renders the create group button" time="0.038">
-    </testcase>
-    <testcase classname=" renders the email address form" name=" renders the email address form" time="0.022">
-    </testcase>
-    <testcase classname=" renders the location form" name=" renders the location form" time="0.022">
-    </testcase>
-    <testcase classname=" renders the radius form" name=" renders the radius form" time="0.022">
-    </testcase>
-    <testcase classname=" renders the duration form" name=" renders the duration form" time="0.028">
+    <testcase classname="&lt;JoinForm /&gt; text boxes should render" name="&lt;JoinForm /&gt; text boxes should render" time="0.044">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\RestaurantForm.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:49" time="3.145" tests="1">
-    <testcase classname="&lt;RestaurantForm /&gt; should load group data into form" name="&lt;RestaurantForm /&gt; should load group data into form" time="0.883">
+  <testsuite name="src\__tests__\RestaurantForm.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:50" time="3.822" tests="1">
+    <testcase classname="&lt;RestaurantForm /&gt; should load group data into form" name="&lt;RestaurantForm /&gt; should load group data into form" time="0.817">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\AddAttendee.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:49" time="3.323" tests="7">
-    <testcase classname=" renders the add attendees page tagline" name=" renders the add attendees page tagline" time="0.16">
+  <testsuite name="src\__tests__\CreateGroup.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:50" time="3.86" tests="7">
+    <testcase classname=" renders the create a group tagline" name=" renders the create a group tagline" time="0.209">
     </testcase>
-    <testcase classname=" renders the go back button" name=" renders the go back button" time="0.174">
+    <testcase classname=" renders the go back button" name=" renders the go back button" time="0.029">
     </testcase>
-    <testcase classname=" renders the invite attendees button" name=" renders the invite attendees button" time="0.071">
+    <testcase classname=" renders the create group button" name=" renders the create group button" time="0.032">
     </testcase>
-    <testcase classname=" renders the add attendee button" name=" renders the add attendee button" time="0.058">
+    <testcase classname=" renders the email address form" name=" renders the email address form" time="0.021">
     </testcase>
-    <testcase classname=" renders the skip button" name=" renders the skip button" time="0.056">
+    <testcase classname=" renders the location form" name=" renders the location form" time="0.02">
+    </testcase>
+    <testcase classname=" renders the radius form" name=" renders the radius form" time="0.034">
+    </testcase>
+    <testcase classname=" renders the duration form" name=" renders the duration form" time="0.033">
+    </testcase>
+  </testsuite>
+  <testsuite name="src\__tests__\AddAttendee.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:50" time="4.215" tests="7">
+    <testcase classname=" renders the add attendees page tagline" name=" renders the add attendees page tagline" time="0.205">
+    </testcase>
+    <testcase classname=" renders the go back button" name=" renders the go back button" time="0.198">
+    </testcase>
+    <testcase classname=" renders the invite attendees button" name=" renders the invite attendees button" time="0.097">
+    </testcase>
+    <testcase classname=" renders the add attendee button" name=" renders the add attendee button" time="0.057">
+    </testcase>
+    <testcase classname=" renders the skip button" name=" renders the skip button" time="0.041">
     </testcase>
     <testcase classname=" renders the email address form" name=" renders the email address form" time="0.017">
     </testcase>
-    <testcase classname=" renders the name form" name=" renders the name form" time="0.025">
+    <testcase classname=" renders the name form" name=" renders the name form" time="0.016">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\App.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:49" time="3.268" tests="3">
-    <testcase classname=" renders the header" name=" renders the header" time="0.24">
-    </testcase>
-    <testcase classname=" renders the tagline" name=" renders the tagline" time="0.033">
-    </testcase>
-    <testcase classname=" renders the landing page" name=" renders the landing page" time="0.023">
+  <testsuite name="src\__tests__\GetSessionApi.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:54" time="1.171" tests="1">
+    <testcase classname="&lt;GetSessionApi /&gt; when API call is made, the loader is displayed should return restaurant list" name="&lt;GetSessionApi /&gt; when API call is made, the loader is displayed should return restaurant list" time="0.049">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\Tagline.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:52" time="0.97" tests="1">
-    <testcase classname=" renders the Tagline" name=" renders the Tagline" time="0.027">
+  <testsuite name="src\__tests__\App.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:50" time="5.344" tests="3">
+    <testcase classname=" renders the header" name=" renders the header" time="0.239">
+    </testcase>
+    <testcase classname=" renders the tagline" name=" renders the tagline" time="0.018">
+    </testcase>
+    <testcase classname=" renders the landing page" name=" renders the landing page" time="0.019">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\VoteApi.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:49" time="4.374" tests="2">
-    <testcase classname="&lt;VoteApi /&gt; should click yes and api endpoint should be called" name="&lt;VoteApi /&gt; should click yes and api endpoint should be called" time="0.422">
-    </testcase>
-    <testcase classname="&lt;VoteApi /&gt; should click yes and api endpoint should not be called" name="&lt;VoteApi /&gt; should click yes and api endpoint should not be called" time="0.076">
+  <testsuite name="src\__tests__\AddAttendeesApi.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:54" time="1.092" tests="1">
+    <testcase classname="&lt;AddAttendeesApi /&gt; when API call is made, the loader is displayed should return 200 response" name="&lt;AddAttendeesApi /&gt; when API call is made, the loader is displayed should return 200 response" time="0.047">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\SessionApi.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:52" time="1.068" tests="1">
-    <testcase classname="&lt;SessionApi /&gt; when API call is made, the loader is displayed should return session id" name="&lt;SessionApi /&gt; when API call is made, the loader is displayed should return session id" time="0.05">
+  <testsuite name="src\__tests__\LandingPage.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:53" time="1.645" tests="3">
+    <testcase classname=" renders the create a group button" name=" renders the create a group button" time="0.096">
+    </testcase>
+    <testcase classname=" renders the join a group button" name=" renders the join a group button" time="0.014">
+    </testcase>
+    <testcase classname=" renders the more info button" name=" renders the more info button" time="0.009">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\GetSessionApi.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:52" time="1.27" tests="1">
-    <testcase classname="&lt;GetSessionApi /&gt; when API call is made, the loader is displayed should return restaurant list" name="&lt;GetSessionApi /&gt; when API call is made, the loader is displayed should return restaurant list" time="0.102">
+  <testsuite name="src\__tests__\VoteApi.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:50" time="5.644" tests="3">
+    <testcase classname="&lt;VoteApi /&gt; should click yes and api endpoint should be called" name="&lt;VoteApi /&gt; should click yes and api endpoint should be called" time="0.436">
+    </testcase>
+    <testcase classname="&lt;VoteApi /&gt; should click yes and api endpoint should not be called" name="&lt;VoteApi /&gt; should click yes and api endpoint should not be called" time="0.077">
+    </testcase>
+    <testcase classname="&lt;VoteApi /&gt; should click no and api endpoint should be called" name="&lt;VoteApi /&gt; should click no and api endpoint should be called" time="0.079">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\LandingPage.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:52" time="1.579" tests="3">
-    <testcase classname=" renders the create a group button" name=" renders the create a group button" time="0.084">
-    </testcase>
-    <testcase classname=" renders the join a group button" name=" renders the join a group button" time="0.016">
-    </testcase>
-    <testcase classname=" renders the more info button" name=" renders the more info button" time="0.011">
+  <testsuite name="src\__tests__\InitiatorPage.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:54" time="1.818" tests="1">
+    <testcase classname=" renders the initiator page tagline" name=" renders the initiator page tagline" time="0.207">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\InitiatorPage.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:52" time="1.545" tests="1">
-    <testcase classname=" renders the initiator page tagline" name=" renders the initiator page tagline" time="0.109">
+  <testsuite name="src\__tests__\SessionApi.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:55" time="0.889" tests="1">
+    <testcase classname="&lt;SessionApi /&gt; when API call is made, the loader is displayed should return session id" name="&lt;SessionApi /&gt; when API call is made, the loader is displayed should return session id" time="0.046">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\Header.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:53" time="0.597" tests="1">
-    <testcase classname=" renders the header" name=" renders the header" time="0.023">
+  <testsuite name="src\__tests__\Tagline.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:55" time="0.767" tests="1">
+    <testcase classname=" renders the Tagline" name=" renders the Tagline" time="0.042">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\AddAttendeesApi.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:53" time="0.666" tests="1">
-    <testcase classname="&lt;AddAttendeesApi /&gt; when API call is made, the loader is displayed should return 200 response" name="&lt;AddAttendeesApi /&gt; when API call is made, the loader is displayed should return 200 response" time="0.035">
+  <testsuite name="src\__tests__\Header.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:55" time="0.779" tests="1">
+    <testcase classname=" renders the header" name=" renders the header" time="0.042">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\AttendeeForm.test.js" errors="0" failures="0" skipped="0" timestamp="2022-07-31T21:07:49" time="6.022" tests="7">
-    <testcase classname="&lt;AttendeeForm /&gt; should load user data into form" name="&lt;AttendeeForm /&gt; should load user data into form" time="0.597">
+  <testsuite name="src\__tests__\AttendeeForm.test.js" errors="0" failures="0" skipped="0" timestamp="2022-08-02T23:16:50" time="6.876" tests="7">
+    <testcase classname="&lt;AttendeeForm /&gt; should load user data into form" name="&lt;AttendeeForm /&gt; should load user data into form" time="0.611">
     </testcase>
-    <testcase classname="&lt;AttendeeForm /&gt; add attendee button should be disabled without data in fields" name="&lt;AttendeeForm /&gt; add attendee button should be disabled without data in fields" time="0.049">
+    <testcase classname="&lt;AttendeeForm /&gt; add attendee button should be disabled without data in fields" name="&lt;AttendeeForm /&gt; add attendee button should be disabled without data in fields" time="0.058">
     </testcase>
-    <testcase classname="&lt;AttendeeForm /&gt; should load user data into form and add attendee to list" name="&lt;AttendeeForm /&gt; should load user data into form and add attendee to list" time="0.746">
+    <testcase classname="&lt;AttendeeForm /&gt; should load user data into form and add attendee to list" name="&lt;AttendeeForm /&gt; should load user data into form and add attendee to list" time="0.707">
     </testcase>
-    <testcase classname="&lt;AttendeeForm /&gt; should click edit and load user data into form" name="&lt;AttendeeForm /&gt; should click edit and load user data into form" time="0.771">
+    <testcase classname="&lt;AttendeeForm /&gt; should click edit and load user data into form" name="&lt;AttendeeForm /&gt; should click edit and load user data into form" time="0.682">
     </testcase>
-    <testcase classname="&lt;AttendeeForm /&gt; should click delete and delete user from list" name="&lt;AttendeeForm /&gt; should click delete and delete user from list" time="0.511">
+    <testcase classname="&lt;AttendeeForm /&gt; should click delete and delete user from list" name="&lt;AttendeeForm /&gt; should click delete and delete user from list" time="0.579">
     </testcase>
-    <testcase classname="&lt;AttendeeForm /&gt; should hover over edit icon and see tooltip" name="&lt;AttendeeForm /&gt; should hover over edit icon and see tooltip" time="0.439">
+    <testcase classname="&lt;AttendeeForm /&gt; should hover over edit icon and see tooltip" name="&lt;AttendeeForm /&gt; should hover over edit icon and see tooltip" time="0.479">
     </testcase>
-    <testcase classname="&lt;AttendeeForm /&gt; should hover over delete icon and see tooltip" name="&lt;AttendeeForm /&gt; should hover over delete icon and see tooltip" time="0.423">
+    <testcase classname="&lt;AttendeeForm /&gt; should hover over delete icon and see tooltip" name="&lt;AttendeeForm /&gt; should hover over delete icon and see tooltip" time="0.45">
     </testcase>
   </testsuite>
 </testsuites>

@@ -3,6 +3,7 @@ import { postApi } from './PostApi';
 
 export function useSessionStatusApi({ sessionId, index }) {
   const [complete, setComplete] = useState(false);
+  
   const url = 'https://chewsy-session.azurewebsites.net';
   // const url = 'http://localhost:8090';
 
