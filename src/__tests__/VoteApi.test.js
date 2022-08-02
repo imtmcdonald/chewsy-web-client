@@ -90,4 +90,38 @@ describe("<VoteApi />", () => {
 
         expect(mock.history.post[0].url).toBeNull;
     })
+
+    test("should click no and api endpoint should be called", async () => {
+
+        mock.onGet(`${sessionUrl}/sessions/${session}/status`).reply(200,"CREATED");
+        mock.onPost(`${url}/vote/${session}/remove`, {"session":"1","email":"test@email.com","restaurant":"test"}).reply(200);
+
+        render(
+            <MemoryRouter initialEntries={[
+                '/',
+                {
+                    pathname: `/restaurant/${session}`,
+                    state: {
+                        index: session,
+                        vote: false,
+                        restaurant: restaurant,
+                        email: email,
+                    },
+                }
+            ]}>
+                <Routes>
+                    <Route exact path="/" element={<LandingPage />} />
+                    <Route component={props => <Restaurant {...props} />} exact path="/restaurant/:sessionId" element={<Restaurant restaurants={JSON.parse(restaurants.restaurantList)} />} />
+                </Routes>
+            </MemoryRouter>
+        )
+
+        const noButton = screen.getByRole('button', { name: /no/i });
+
+        expect(noButton).toBeInTheDocument;
+
+        await userEvent.click(noButton);
+
+        expect(mock.history.post[0].url).toEqual(`${url}/vote/${session}/remove`);
+    })
 })

@@ -13,7 +13,7 @@ export default function Restaurant(props) {
   const { sessionId } = useParams();
   const { restaurants } = props;
   const [index, setIndex] = useState(0);
-  const [vote, setVote] = useState(false);
+  const [vote, setVote] = useState(null);
   const [restaurant, setRestaurant] = useState('');
   const [email, setEmail] = useState(state.email);
 
@@ -29,7 +29,14 @@ export default function Restaurant(props) {
   const handleNoButtonClicked = (event) => {
     event.preventDefault();
     setVote(false);
+    setRestaurant(restaurants[index].NAME);
     setIndex(index < restaurants.length ? index + 1 : 0);
+  };
+
+  const handlePreviousButtonClicked = (event) => {
+    event.preventDefault();
+    setVote(null);
+    setIndex(index > 0 ? index - 1 : restaurants.length);
   };
 
   useVoteApi(sessionId, email, restaurant, vote, complete);
@@ -82,7 +89,7 @@ export default function Restaurant(props) {
         </Row>
         <Row>
           <Col className="w-100" style={{ display: 'inline-block', textAlign: 'left' }}>
-            <Button aria-label="back" variant="danger" disabled={index < 1} onClick={() => setIndex(index > 0 ? index - 1 : restaurants.length)}>
+            <Button aria-label="back" variant="danger" disabled={index < 1} onClick={handlePreviousButtonClicked.bind(this)}>
               Previous Restaurant
             </Button>
           </Col>

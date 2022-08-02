@@ -21,8 +21,14 @@ export function useVoteApi(sessionId, email, restaurant, vote, complete) {
                 setSubmitted(true);
             }
         });
+    } else if (vote === null) {
     } else {
-        setSubmitted(false);
+        postApi.post(`${url}/vote/${sessionId}/remove`, body, { headers })
+        .then((response) => {
+            if (response.status == 200) {
+                setSubmitted(true);
+            }
+        });
     }
   };
 
@@ -30,7 +36,7 @@ export function useVoteApi(sessionId, email, restaurant, vote, complete) {
     if (!complete) {
       castVote();
     }
-  }, [restaurant]);
+  }, [restaurant, vote]);
 
   return submitted;
 }
