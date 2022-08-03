@@ -21,7 +21,8 @@ export default function App() {
           <Routes>
               <Route exact path="/" element={<LandingPage />} />
               <Route exact path="/creategroup" element={<CreateGroup />} />
-              <Route exact path="/joingroup" element={<JoinGroup />} />
+              <Route path="/joingroup" element={<JoinGroup />} />
+              <Route path="/joingroup/:sessionId/:email" element={<JoinGroup />} />
               <Route exact path="/moreinfo" element={<MoreInfo />} />
               <Route exact path="/initiator" element={<InitiatorPage />} />
               <Route exact path="/invite" element={<InvitePage />} />

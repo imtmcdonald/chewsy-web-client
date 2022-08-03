@@ -12,12 +12,12 @@ import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 export default function AttendeeForm({ session }) {
   const { state } = useLocation();
+  const [ initiator, setInitiator ] = useState(state.initiator);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [edit, setEdit] = useState(false);
   const [index, setIndex] = useState('');
-  const [attendees, setAttendees] = useState([]);
-  const [ initiator, setInitiator ] = useState(state.initiator);
+  const [attendees, setAttendees] = useState([{ name: "You", email: initiator}]);
 
   const handleNameChanged = (event) => {
     setName(event.target.value);
@@ -130,7 +130,7 @@ export default function AttendeeForm({ session }) {
                   </Tooltip>
                 }
               >
-                <FontAwesomeIcon aria-label="delete-icon" className="btn btn-danger ms-2" icon={faTrash} onClick={handleDeleteButtonClicked.bind(this, index)} />
+                <FontAwesomeIcon aria-label="delete-icon" className="btn btn-danger ms-2" style={index>0 ? {} : { display: 'none' }} icon={faTrash} onClick={handleDeleteButtonClicked.bind(this, index)} />
               </OverlayTrigger>
             </Col>
             </Row>

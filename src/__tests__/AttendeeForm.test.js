@@ -12,7 +12,7 @@ describe("<AttendeeForm />", () => {
     let editButton;
     let deleteButton;
     const session = "1";
-    const email = "test@email.com";
+    const email = "initiator@email.com";
     
     test("should load user data into form", async () => {
         render(
@@ -101,7 +101,7 @@ describe("<AttendeeForm />", () => {
 
         await userEvent.type(emailTextBox, "test@email.com");
         await userEvent.type(nameTextBox, "test");
-        await userEvent.click(addAttendeeButton)
+        await userEvent.click(addAttendeeButton);
 
         expect(
             screen.getByRole("form", {
@@ -118,8 +118,8 @@ describe("<AttendeeForm />", () => {
         const attendeeEmail = screen.getByText(/test@email.com/i);
         expect(attendeeEmail).toBeInTheDocument();
 
-        expect(screen.getByLabelText('edit-icon')).toBeInTheDocument;
-        expect(screen.getByLabelText('delete-icon')).toBeInTheDocument;
+        expect(screen.getAllByLabelText('edit-icon')).toBeInTheDocument;
+        expect(screen.getAllByLabelText('delete-icon')).toBeInTheDocument;
     });
 
     test("should click edit and load user data into form", async () => {
@@ -154,7 +154,7 @@ describe("<AttendeeForm />", () => {
         await userEvent.type(nameTextBox, "test");
         await userEvent.click(addAttendeeButton)
 
-        editButton = screen.getByLabelText('edit-icon');
+        editButton = screen.getAllByLabelText('edit-icon').at(1);
         await userEvent.click(editButton)
 
         expect(
@@ -197,9 +197,9 @@ describe("<AttendeeForm />", () => {
         
         await userEvent.type(emailTextBox, "test@email.com");
         await userEvent.type(nameTextBox, "test");
-        await userEvent.click(addAttendeeButton)
+        await userEvent.click(addAttendeeButton);
 
-        deleteButton = screen.getByLabelText('delete-icon');
+        deleteButton = screen.getAllByLabelText('delete-icon').at(1);
         await userEvent.click(deleteButton)
 
         const attendeeName = screen.queryByText(/test/i);
@@ -239,9 +239,9 @@ describe("<AttendeeForm />", () => {
         
         await userEvent.type(emailTextBox, "test@email.com");
         await userEvent.type(nameTextBox, "test");
-        await userEvent.click(addAttendeeButton)
+        await userEvent.click(addAttendeeButton);
 
-        editButton = screen.getByLabelText('edit-icon');
+        editButton = screen.getAllByLabelText('edit-icon').at(1);
         await userEvent.hover(editButton)
 
         const editToolTip = screen.queryByText(/Edit/i);
@@ -278,9 +278,9 @@ describe("<AttendeeForm />", () => {
         
         await userEvent.type(emailTextBox, "test@email.com");
         await userEvent.type(nameTextBox, "test");
-        await userEvent.click(addAttendeeButton)
+        await userEvent.click(addAttendeeButton);
 
-        deleteButton = screen.getByLabelText('delete-icon');
+        deleteButton = screen.getAllByLabelText('delete-icon').at(1);
         await userEvent.hover(deleteButton)
 
         const deleteToolTip = screen.queryByText(/Delete/i);
