@@ -119,7 +119,7 @@ test("renders the email address form", () => {
             <AddAttendees />
         </MemoryRouter>
     );
-    const emailAddressLabel = screen.getByText(/Email address:/i);
+    const emailAddressLabel = screen.getAllByText(/Email address:/i).at(0);
     expect(emailAddressLabel).toBeInTheDocument();
 });
 
@@ -139,6 +139,6 @@ test("renders the name form", () => {
             <AddAttendees />
         </MemoryRouter>
     );
-    const nameLabel = screen.getByText(/Name:/i);
+    const nameLabel = screen.getAllByText(/Name:/i).at(0);
     expect(nameLabel).toBeInTheDocument();
 });
